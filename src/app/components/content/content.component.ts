@@ -53,7 +53,7 @@ export class ContentComponent implements OnInit {
       nombre: "Maria Florencia",
       apellido: "Mendoza",
       curso: "Angular",
-      asistencia: "presente",
+      asistencia: "",
       fecha: "24/07/2022",
       estado: "Activo"
     },

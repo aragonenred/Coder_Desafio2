@@ -13,15 +13,16 @@
     </thead>
     <tbody >
       <ng-container *ngFor="let alumno of alumnos">
-        <tr *ngIf="alumno.estado !='inactivo'" [ngClass]="alumno.asistencia == 'presente' ? 'presente':'ausente'" >
+        <tr *ngIf="alumno.estado !='inactivo'" [ngClass]="alumno.asistencia == 'ausente' ? 'ausente':'presente'" >
           <td>{{alumno.nombre }}</td>
           <td>{{alumno.apellido}}</td>
           <td>{{alumno.curso}}</td>
           <td>{{alumno.asistencia |titlecase}}</td>
           <td>{{alumno.fecha}}</td>
-          <td>
-            <span class="icon-asistencia" *ngIf="alumno.asistencia =='presente'" >😀​</span>
-            <span class="icon-asistencia" *ngIf="alumno.asistencia =='ausente'">🙁​​</span>
+          <td [ngSwitch]="alumno.asistencia">
+            <span class="icon-asistencia" *ngSwitchCase="'presente'" >😀​</span>
+            <span class="icon-asistencia" *ngSwitchCase="'ausente'">🙁​​</span>
+            <span class="icon-asistencia" *ngSwitchDefault>😐​</span>
           </td>
         </tr>
       </ng-container>
